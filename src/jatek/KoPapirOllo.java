@@ -9,34 +9,59 @@ public class KoPapirOllo {
         Scanner sc = new Scanner(System.in);
         Random rnd = new Random();
         
-        System.out.println("Válassz: Kő (0), Papír (1), Olló (2)");
-        System.out.print("A te választásod: ");
+        System.out.println("Kő-Papír-Olló játék\n");
+        System.out.println("Válassz: Kő = 0, Papír = 1, Olló = 2");
+        System.out.print("A te választásod (szám): ");
 
-        int felhasznaloValasztas = sc.nextInt();
+        int felhasznaloValaszt = sc.nextInt();
         //...
-        int gepValasztas = rnd.nextInt(3);
+        int gepValaszt = rnd.nextInt(3);
 
-        String gepValasztasSzoveg;
-        String felhasznaloValasztasSzoveg;
+        String gepValasztSzoveg;
+        String felhasznaloValasztSzoveg;
         
-        if (gepValasztas == 0) {
-            gepValasztasSzoveg = "Kő";
-        } else if (gepValasztas == 1) {
-            gepValasztasSzoveg = "Papír";
+        if (gepValaszt == 0) {
+            gepValasztSzoveg = "Kő";
+        } else if (gepValaszt == 1) {
+            gepValasztSzoveg = "Papír";
         } else {
-            gepValasztasSzoveg = "Olló";
+            gepValasztSzoveg = "Olló";
         }
 
-        if (felhasznaloValasztas == 0) {
-            felhasznaloValasztasSzoveg = "Kő";
-        } else if (felhasznaloValasztas == 1) {
-            felhasznaloValasztasSzoveg = "Papír";
+        if (felhasznaloValaszt == 0) {
+            felhasznaloValasztSzoveg = "Kő";
+        } else if (felhasznaloValaszt == 1) {
+            felhasznaloValasztSzoveg = "Papír";
         } else {
-            felhasznaloValasztasSzoveg = "Olló";
+            felhasznaloValasztSzoveg = "Olló";
         }
         
-        System.out.println("A gép választása: " + gepValasztasSzoveg);
-        System.out.println("A te választásod: " + felhasznaloValasztasSzoveg);
+        System.out.println("\nA gép választása: " + gepValasztSzoveg);
+        System.out.println("A te választásod: " + felhasznaloValasztSzoveg);
+        System.out.println("______________________________");
+        System.out.println("Az eredmény:");
+        
+        if (felhasznaloValaszt == gepValaszt) {
+            System.out.println("\t-> Döntetlen!\n");
+        } else if (felhasznaloValaszt == 0) {
+            if (gepValaszt == 2) {
+                System.out.println("\t-> Nyertél! A kő legyőzte az ollót.\n");
+            } else {
+                System.out.println("\t-> A gép nyert! A papír becsomagolta a követ.\n");
+            }
+        } else if (felhasznaloValaszt == 1) {
+            if (gepValaszt == 0) {
+                System.out.println("\t-> Nyertél! A papír becsomagolta a követ.\n");
+            } else {
+                System.out.println("\t-> A gép nyert! Az olló elvágta a papírt.\n");
+            }
+        } else if (felhasznaloValaszt == 2) {
+            if (gepValaszt == 1) {
+                System.out.println("\t-> Nyertél! Az olló elvágta a papírt.\n");
+            } else {
+                System.out.println("\t-> A gép nyert! A kő széttörte az ollót.\n");
+            }
+        }
     }
     
 }
